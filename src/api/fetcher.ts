@@ -1,14 +1,14 @@
 export async function fetcher<T>(url: string, options: RequestInit = {}): Promise<T> {
     const headers = new Headers(options.headers);
 
-    if (headers.has("Content-Type") && options.headers && !(options.body instanceof FormData)) {
-        headers.set("Content-Type", "application/json")
+    if (!headers.has("Content-Type") && options.body && !(options.body instanceof FormData)) {
+        headers.set("Content-Type", "application/json");
     };
 
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}${url}`, {
         ...options,
-        credentials: "include",
+        credentials: 'include',
         headers,
     });
 
@@ -25,5 +25,5 @@ export async function fetcher<T>(url: string, options: RequestInit = {}): Promis
     const contentType = res.headers.get("content-type") || "";
     if (!contentType.includes("application/json")) return (await res.text()) as unknown as T;
 
-    return res.json() as Promise<T>
-}
+    return res.json() as Promise<T>;
+};
