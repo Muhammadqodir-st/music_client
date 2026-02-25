@@ -1,7 +1,21 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+import { useActionState } from "react";
+import { signin } from "./actions";
+import ButtonLoader from "@/components/loaders/ButtonLoader";
+
+const initalState = {
+    ok: false,
+    message: "",
+    fieldErrors: {} as Record<string, string[]>
+};
+
 
 export default function Page() {
+    const [state, formAction, pending] = useActionState(signin, initalState);
+
     return (
         <div className="w-100 flex flex-col gap-5">
             <p className="text-center text-4xl font-bold">Welcome to Music</p>
@@ -17,12 +31,22 @@ export default function Page() {
                 <div className="flex-1 h-px bg-white"></div>
             </div>
 
-            <form className="w-full flex flex-col gap-5" action="">
+            <form className="w-full flex flex-col gap-5" action={formAction}>
                 <label>
                     <input className="w-full py-2 px-4 rounded-lg border" type="text" name="email" placeholder="email@example.com" />
                 </label>
 
-                <button className="w-full p-2 rounded-lg bg-[#1E90FF] cursor-pointer">Sign In</button>
+                {state.fieldErrors?.email && <div className="text-red-500 text-sm">{state.fieldErrors.email.map((error, id) => <p key={id}>{error}</p>)}</div>}
+
+                {state.message &&
+                    <div className={["text-sm", state.ok ? "text-green-700" : "text-red-500"].join(" ")}>
+                        {state.message}
+                    </div>
+                }
+
+                <button disabled={pending} type="submit" className={`w-full ${pending ? 'p-3' : 'p-2'} rounded-lg bg-[#1E90FF] hover:bg-[#157be0] disabled:bg-[#095caf] flex items-center justify-center cursor-pointer`}>
+                    {pending ? <ButtonLoader /> : "Sign In"}
+                </button>
             </form>
 
             <Link className="text-sm font-bold underline text-blue-600" href={'/auth/sign-up'}>Don't have an account?</Link>

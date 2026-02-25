@@ -13,3 +13,7 @@ export const SignUpFormSchema = z.object({
         .min(1, "Email is required")
         .email("Invalid email address")
 });
+
+export const SignInFormSchema = z.object({
+    email: z.string().trim().min(1, "Email is required").email("Invalid email address")
+});
