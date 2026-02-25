@@ -17,7 +17,7 @@ export default function Page() {
     const [state, formAction, pending] = useActionState(signup, initalState);
 
     return (
-        <div className="w-100 flex flex-col gap-5">
+        <div className="w-100 flex flex-col gap-6">
             <p className="text-center text-4xl font-bold">Welcome to Music</p>
 
             <button className="w-full p-2 rounded-lg border flex items-center justify-center gap-5 cursor-pointer">
@@ -31,7 +31,7 @@ export default function Page() {
                 <div className="flex-1 h-px bg-white"></div>
             </div>
 
-            <form className="w-full flex flex-col gap-5" action={formAction}>
+            <form className="w-full flex flex-col gap-7" action={formAction}>
                 <label>
                     <input className="w-full py-2 px-4 rounded-lg border" type="text" name="name" placeholder="Sonny Hayes" />
                 </label>
