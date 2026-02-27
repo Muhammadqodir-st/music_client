@@ -15,3 +15,8 @@ export function signIn(data: { email: string }) {
         body: JSON.stringify(data)
     });
 };
+
+// verify 
+export function verifyToken(data: { token: string }) {
+    return fetcher(`/auth/verify?token=${encodeURI(data.token)}`)
+};
