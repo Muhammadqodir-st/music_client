@@ -1,10 +1,10 @@
 "use client"
 
-import Image from "next/image";
 import Link from "next/link";
 import { useActionState } from "react";
 import { signin } from "./actions";
 import ButtonLoader from "@/components/loaders/ButtonLoader";
+import GoogleBtn from "../components/GoogleBtn";
 
 const initalState = {
     ok: false,
@@ -20,10 +20,7 @@ export default function Page() {
         <div className="w-100 flex flex-col gap-6">
             <p className="text-center text-4xl font-bold">Welcome to Music</p>
 
-            <button className="w-full p-2 rounded-lg border flex items-center justify-center gap-5 cursor-pointer">
-                <Image src="/assets/google.webp" alt="Google icon" width={24} height={24} />
-                <p className="text-center font-bold">Sign In with a Google</p>
-            </button>
+            <GoogleBtn />
 
             <div className="w-full flex items-center justify-center gap-3 px-1">
                 <div className="flex-1 h-px bg-white"></div>

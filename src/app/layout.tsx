@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TanstackQueryProvider from "@/providers/tanstack-react-query-provider";
+import ReduxProvider from "@/providers/redux-toolkit-provider";
+import { Suspense } from "react";
+import StoreUserLoader from "@/components/store-user/StoreUserLoader";
+import StoreUser from "@/components/store-user/StoreUser";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +33,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <TanstackQueryProvider>
-          {children}
+          <ReduxProvider>
+            <Suspense fallback={<StoreUserLoader />}>
+              <StoreUser />
+            </Suspense>
+            {children}
+          </ReduxProvider>
         </TanstackQueryProvider>
       </body>
     </html>
