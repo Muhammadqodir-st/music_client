@@ -22,8 +22,10 @@ export default function Header() {
 
     return (
         <header className="w-full py-3">
-            <div className="flex items-center justify-between px-4">
-                <span />
+            <div className="flex items-center justify-between px-5">
+                <Link href={'/'}>
+                    <Image src="/assets/logo3.png" alt="logo" width={40} height={40} />
+                </Link>
 
                 {/* search */}
                 <label className="w-6/12 flex items-center border py-2 px-3 rounded-full gap-3" htmlFor="searachInput">
@@ -35,9 +37,9 @@ export default function Header() {
                 {/* user avatar */}
                 <Popover>
                     <PopoverTrigger className="cursor-pointer">
-                        <Image className="rounded-full" src={user?.avatar || "/assets/google.webp"} alt={user?.name || "name"} width={32} height={32} />
+                        <Image className="rounded-full" src={user?.avatar || "/assets/google.webp"} alt={user?.name || "name"} width={33} height={33} />
                     </PopoverTrigger>
-                    <PopoverContent className="bg-black rounded-md py-3 px-5" align="end">
+                    <PopoverContent className="py-3 px-5" align="end">
                         <ul>
                             <li className="p-2">
                                 <Link href={'/'} className={`font-bold ${pathname === "/a" ? "text-white" : "text-gray-400 hover:text-white"}`}>
