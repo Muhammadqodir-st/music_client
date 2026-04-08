@@ -9,9 +9,9 @@ export default function GoogleBtn() {
     };
 
     return (
-        <button onClick={googleLogin} className="w-full p-2 rounded-lg border flex items-center justify-center gap-5 cursor-pointer">
+        <button onClick={googleLogin} className="w-full p-2 rounded-lg border border-gray-400 flex items-center justify-center gap-5 cursor-pointer">
             <Image src="/assets/google.webp" alt="Google icon" width={24} height={24} />
-            <p className="text-center font-bold">Sign In with a Google</p>
+            <p className="text-center font-bold text-gray-500 dark:text-white">Sign In with a Google</p>
         </button>
     );
 };
