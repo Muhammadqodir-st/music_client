@@ -23,7 +23,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <div className="min-h-screen flex items-center justify-center">
             <div className="w-8/10 h-190 rounded-2xl border border-gray-500  flex items-center overflow-hidden">
                 {/* Image */}
-                <Image className="h-full object-cover" src="/assets/AuthBackground.png" alt="Auth backround image" width={800} height={700} loading="eager" />
+                <Image className="w-[54.5%] h-full object-cover" src="/assets/AuthBackground.png" alt="Auth backround image" width={800} height={700} loading="eager" />
 
                 {/* children */}
                 <div className="flex-1 flex h-full items-center justify-center">
