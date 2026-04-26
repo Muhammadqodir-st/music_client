@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Kablammo } from "next/font/google";
 import "./globals.css";
 import TanstackQueryProvider from "@/providers/tanstack-react-query-provider";
 import ReduxProvider from "@/providers/redux-toolkit-provider";
@@ -10,6 +10,11 @@ import StoreUser from "@/components/store-user/StoreUser";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const kablammo = Kablammo({
+  variable:"--font-kablammo",
+  subsets:["latin"]
 });
 
 const geistMono = Geist_Mono({
@@ -30,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${kablammo.variable} antialiased`}
       >
         <TanstackQueryProvider>
           <ReduxProvider>
