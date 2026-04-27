@@ -7,7 +7,7 @@ export default function VerifyPage() {
             <VerifyClient />
         </Suspense>
     )
-}
+};
 
 function VerifyLoading() {
     return (
@@ -35,4 +35,4 @@ function VerifyLoading() {
             </div>
         </section>
     )
-}
+};
