@@ -1,7 +1,7 @@
 "use client"
 
 import { RootState } from "@/store/store";
-import { Search } from "lucide-react";
+import { Search, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
@@ -9,10 +9,10 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
     // user
-    const user = useSelector((state: RootState) => state.user.data)
+    const user = useSelector((state: RootState) => state.user.data);
 
     return (
-        <header className="w-full px-5 py-6 flex items-center justify-between">
+        <header className="w-full px-8 py-4 flex items-center justify-between border-b border-gray-900">
             <Link href={'/'}>
                 <Image src="/assets/101.png" alt="logo" width={100} height={100} />
             </Link>
@@ -22,7 +22,9 @@ export default function Header() {
                 <Search className="text-gray-400 cursor-pointer" />
             </label>
 
-            <span />
+            <Link href={'/'}>
+                <Image className="rounded-full" src={user?.avatar || '/assets/defualtUser.png'} alt="User avatar" width={38} height={38} />
+            </Link>
         </header>
     );
 };

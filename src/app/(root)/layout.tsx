@@ -6,11 +6,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <main className="h-screen flex flex-col">
             <Header />
-            {/* <div className="flex-1 flex">
+            <div className="flex-1 flex">
                 <Sidebar />
                 {children}
-            </div> */}
-            {/* <AudioPlayer audioSrc="/music/song.mp3" /> */}
+            </div>
+            <AudioPlayer audioSrc="/music/song.mp3" />
         </main>
     );
 };
