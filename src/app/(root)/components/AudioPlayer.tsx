@@ -35,13 +35,6 @@ export default function AudioPlayer({ audioSrc }: { audioSrc: string }) {
         setIsPlaying(false);
     };
 
-    const handlePlayPause = () => {
-        if (isPlaying) {
-            handlePause()
-        } else {
-            handlePlay()
-        };
-    };
 
     function formatDuration(durationSecounds:number) {
         const minutes = Math.floor(durationSecounds / 60)
@@ -64,7 +57,7 @@ export default function AudioPlayer({ audioSrc }: { audioSrc: string }) {
 
             <div className="flex flex-col items-center gap-1">
                 {/* play pause button */}
-                <button className="p-2.5 bg-violet-600 rounded-full cursor-pointer" onClick={handlePlayPause}>
+                <button className="p-2.5 bg-violet-600 rounded-full cursor-pointer" onClick={() => {isPlaying ? handlePause() : handlePlay()}}>
                     {isPlaying ? <Pause size={23} /> : <Play size={23} />}
                 </button>
 
