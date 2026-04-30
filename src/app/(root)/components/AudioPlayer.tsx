@@ -52,7 +52,7 @@ export default function AudioPlayer({ audioSrc }: { audioSrc: string }) {
     }, [])
 
     return (
-        <div className="w-full p-2 bg-red-500 flex items-center justify-between">
+        <div className="w-full p-2 border-t border-gray-900 flex items-center justify-between">
             <Image src="/assets/rocky.jpg" alt="image" width={150} height={180} />
 
             <div className="flex flex-col items-center gap-1">

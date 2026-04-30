@@ -17,7 +17,7 @@ export default function Page() {
     const [state, formAction, pending] = useActionState(signup, initalState);
 
     return (
-        <div className="w-100 flex flex-col gap-6">
+        <div className="max-sm:w-auto w-100 flex flex-col gap-6">
             <p className="text-center text-4xl font-bold text-gray-700 dark:text-white">Welcome to Music</p>
 
             <GoogleBtn />

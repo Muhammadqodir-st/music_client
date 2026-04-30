@@ -17,7 +17,7 @@ export default function Page() {
     const [state, formAction, pending] = useActionState(signin, initalState);
 
     return (
-        <div className="w-100 flex flex-col gap-6">
+        <div className="max-sm:w-auto w-100 flex flex-col gap-6">
            <p className="text-center text-4xl font-bold text-gray-700 dark:text-white">Welcome to Music</p>
 
             <GoogleBtn />
@@ -48,5 +48,5 @@ export default function Page() {
 
             <Link className="text-sm font-bold underline text-violet-600" href={'/auth/sign-up'}>Don't have an account?</Link>
         </div>
-    )
-}
+    );
+};

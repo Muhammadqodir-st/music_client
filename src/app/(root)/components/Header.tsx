@@ -12,7 +12,7 @@ export default function Header() {
     const user = useSelector((state: RootState) => state.user.data);
 
     return (
-        <header className="w-full px-8 py-4 flex items-center justify-between border-b border-gray-900">
+        <header className="w-full px-8 py-4 flex items-center justify-between">
             <Link href={'/'}>
                 <Image src="/assets/101.png" alt="logo" width={100} height={100} />
             </Link>
