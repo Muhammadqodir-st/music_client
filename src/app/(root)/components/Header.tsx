@@ -22,9 +22,15 @@ export default function Header() {
                 <Search className="text-gray-400 cursor-pointer" />
             </label>
 
-            <Link href={'/'}>
-                <Image className="rounded-full" src={user?.avatar || '/assets/defualtUser.png'} alt="User avatar" width={38} height={38} />
-            </Link>
+            {user ?
+                <Link href={'/'}>
+                    <Image className="rounded-full" src={user.avatar || '/assets/defualtUser.png'} alt="User avatar" width={38} height={38} />
+                </Link> :
+                <div className="flex items-center gap-5">
+                    <Link href={'/auth/sign-in'} className="py-1.5 border border-violet-700 px-5 rounded-full font-bold hover:border-violet-600">sign-in</Link>
+                    <Link href={'/auth/sign-up'} className="py-1.5 bg-violet-700 px-5 rounded-full font-bold hover:bg-violet-600">sign-up</Link>
+                </div>
+            }
         </header>
     );
 };
