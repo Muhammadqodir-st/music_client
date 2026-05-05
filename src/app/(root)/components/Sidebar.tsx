@@ -15,7 +15,7 @@ export default function Sidebar() {
                     <Link className={`flex items-center gap-2  rounded-lg py-1 px-3 border border-transparent hover:border-violet-700 ${pathname === "/" ? "bg-violet-700" : "bg-none"}`} href={'/'}><House size={23} /><p className="font-bold">Home</p></Link>
                 </li>
                 <li>
-                    <Link className={`flex items-center gap-2  rounded-lg py-1 px-3 border border-transparent hover:border-violet-700 ${pathname === "/create" ? "bg-violet-700" : "bg-none"}`} href={'/'}><SquarePlus size={23} /><p className="font-bold">Create song</p></Link>
+                    <Link className={`flex items-center gap-2  rounded-lg py-1 px-3 border border-transparent hover:border-violet-700 ${pathname === "/create" ? "bg-violet-700" : "bg-none"}`} href={'/create'}><SquarePlus size={23} /><p className="font-bold">Create song</p></Link>
                 </li>
             </ul>
         </div>
