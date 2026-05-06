@@ -1,6 +1,5 @@
 "use client"
 
-// lucide
 import { Camera, Music } from "lucide-react";
 import Image from "next/image";
 import { useActionState, useState } from "react";
@@ -15,15 +14,15 @@ const initialState = {
 
 export default function Page() {
     const [state, formActions, pending] = useActionState(create, initialState);
-    const [artwork, setArtwork] = useState(null);
-    const [song, setSong] = useState(null);
+    const [artwork, setArtwork] = useState<string>("/assets/defualtArtwork.png");
+    const [song, setSong] = useState<string | null>(null);
 
     return (
-        <div className="w-full h-full flex gap-3">
+        <div className="w-full h-full flex items-start justify-start gap-3">
 
             {/* audio player */}
             <div className="flex flex-col gap-4">
-                <Image className="rounded-lg" src="/assets/defualtArtwork.png" alt="artwork" width={300} height={300} />
+                <Image className="max-h-60 object-cover rounded-lg" src={artwork} alt="artwork" width={350} height={300} />
 
                 <p className="font-bold px-1">Eye of the Tiger</p>
 
@@ -34,7 +33,11 @@ export default function Page() {
 
                 <label htmlFor="artworkInput" className="flex flex-col gap-1 cursor-pointer">
                     <p className="text-sm font-bold">artwork</p>
-                    <input className="hidden" type="file" name="artowrk" id="artworkInput" />
+                    <input className="hidden" type="file" name="artowrk" id="artworkInput" onChange={(e: any) => {
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        setArtwork(URL.createObjectURL(file));
+                    }} />
                     <div className="py-1 px-3 border border-violet-700 rounded-lg flex items-center justify-center">
                         <Camera className="text-violet-600" />
                     </div>
@@ -51,7 +54,11 @@ export default function Page() {
 
                 <label htmlFor="songInput" className="flex flex-col gap-1 cursor-pointer">
                     <p className="text-sm font-bold">song</p>
-                    <input className="hidden" type="file" name="song" id="songInput" />
+                    <input className="hidden" type="file" name="song" id="songInput" onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        setSong(URL.createObjectURL(file));
+                    }} />
                     <div className="py-1 px-3 border border-violet-700 rounded-lg flex items-center justify-center">
                         <Music className="text-violet-600" />
                     </div>
