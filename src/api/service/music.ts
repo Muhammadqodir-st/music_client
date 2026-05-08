@@ -6,3 +6,9 @@ export function createMusic(data: { title: string, artwork: File | undefined, so
         body: JSON.stringify(data)
     });
 };
+
+export function getMusics() {
+    return fetcher("/music", {
+        method: "GET"
+    });
+}
